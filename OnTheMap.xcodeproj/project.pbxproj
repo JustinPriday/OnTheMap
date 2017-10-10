@@ -7,13 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF4CE6A41F8D1C9200162957 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CE6A31F8D1C9200162957 /* StringExtensions.swift */; };
+		FF4CE6A81F8D261000162957 /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CE6A71F8D261000162957 /* UdacityClient.swift */; };
+		FF4CE6AA1F8D267F00162957 /* UdacityConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CE6A91F8D267F00162957 /* UdacityConstants.swift */; };
+		FF4CE6AC1F8D277600162957 /* UdacityConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CE6AB1F8D277600162957 /* UdacityConvenience.swift */; };
 		FF8EFDB01F8CEC67005202DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8EFDAF1F8CEC67005202DA /* AppDelegate.swift */; };
-		FF8EFDB21F8CEC67005202DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8EFDB11F8CEC67005202DA /* ViewController.swift */; };
 		FF8EFDB51F8CEC67005202DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8EFDB31F8CEC67005202DA /* Main.storyboard */; };
-		FF8EFDB81F8CEC67005202DA /* OnTheMap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF8EFDB61F8CEC67005202DA /* OnTheMap.xcdatamodeld */; };
 		FF8EFDBA1F8CEC67005202DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF8EFDB91F8CEC67005202DA /* Assets.xcassets */; };
 		FF8EFDBD1F8CEC67005202DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8EFDBB1F8CEC67005202DA /* LaunchScreen.storyboard */; };
 		FF8EFDC81F8CEC67005202DA /* OnTheMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8EFDC71F8CEC67005202DA /* OnTheMapUITests.swift */; };
+		FF8EFDD71F8CEE8C005202DA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF8EFDD61F8CEE8C005202DA /* Default-568h@2x.png */; };
+		FF8EFDDA1F8CF396005202DA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8EFDD91F8CF396005202DA /* LoginViewController.swift */; };
+		FF8EFDDD1F8CFBAA005202DA /* UIRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8EFDDC1F8CFBAA005202DA /* UIRoundedButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,17 +32,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FF4CE6A31F8D1C9200162957 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		FF4CE6A71F8D261000162957 /* UdacityClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
+		FF4CE6A91F8D267F00162957 /* UdacityConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityConstants.swift; sourceTree = "<group>"; };
+		FF4CE6AB1F8D277600162957 /* UdacityConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityConvenience.swift; sourceTree = "<group>"; };
 		FF8EFDAC1F8CEC67005202DA /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8EFDAF1F8CEC67005202DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FF8EFDB11F8CEC67005202DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FF8EFDB41F8CEC67005202DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FF8EFDB71F8CEC67005202DA /* OnTheMap.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OnTheMap.xcdatamodel; sourceTree = "<group>"; };
 		FF8EFDB91F8CEC67005202DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF8EFDBC1F8CEC67005202DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF8EFDBE1F8CEC67005202DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF8EFDC31F8CEC67005202DA /* OnTheMapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnTheMapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8EFDC71F8CEC67005202DA /* OnTheMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheMapUITests.swift; sourceTree = "<group>"; };
 		FF8EFDC91F8CEC67005202DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF8EFDD61F8CEE8C005202DA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		FF8EFDD91F8CF396005202DA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FF8EFDDC1F8CFBAA005202DA /* UIRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRoundedButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +68,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FF4CE6A21F8D1C5500162957 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				FF4CE6A31F8D1C9200162957 /* StringExtensions.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		FF4CE6A51F8D24FD00162957 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FF4CE6A61F8D250400162957 /* Udacity */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FF4CE6A61F8D250400162957 /* Udacity */ = {
+			isa = PBXGroup;
+			children = (
+				FF4CE6A71F8D261000162957 /* UdacityClient.swift */,
+				FF4CE6A91F8D267F00162957 /* UdacityConstants.swift */,
+				FF4CE6AB1F8D277600162957 /* UdacityConvenience.swift */,
+			);
+			path = Udacity;
+			sourceTree = "<group>";
+		};
 		FF8EFDA31F8CEC66005202DA = {
 			isa = PBXGroup;
 			children = (
@@ -80,12 +116,12 @@
 			isa = PBXGroup;
 			children = (
 				FF8EFDAF1F8CEC67005202DA /* AppDelegate.swift */,
-				FF8EFDB11F8CEC67005202DA /* ViewController.swift */,
-				FF8EFDB31F8CEC67005202DA /* Main.storyboard */,
-				FF8EFDB91F8CEC67005202DA /* Assets.xcassets */,
-				FF8EFDBB1F8CEC67005202DA /* LaunchScreen.storyboard */,
-				FF8EFDBE1F8CEC67005202DA /* Info.plist */,
-				FF8EFDB61F8CEC67005202DA /* OnTheMap.xcdatamodeld */,
+				FF4CE6A51F8D24FD00162957 /* Model */,
+				FF8EFDDB1F8CFB77005202DA /* View */,
+				FF8EFDD81F8CF350005202DA /* Controlllers */,
+				FF4CE6A21F8D1C5500162957 /* Utility */,
+				FF8EFDD21F8CED62005202DA /* Assets */,
+				FF8EFDD31F8CED91005202DA /* Supporting Files */,
 			);
 			path = OnTheMap;
 			sourceTree = "<group>";
@@ -97,6 +133,41 @@
 				FF8EFDC91F8CEC67005202DA /* Info.plist */,
 			);
 			path = OnTheMapUITests;
+			sourceTree = "<group>";
+		};
+		FF8EFDD21F8CED62005202DA /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				FF8EFDB31F8CEC67005202DA /* Main.storyboard */,
+				FF8EFDB91F8CEC67005202DA /* Assets.xcassets */,
+				FF8EFDBB1F8CEC67005202DA /* LaunchScreen.storyboard */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		FF8EFDD31F8CED91005202DA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FF8EFDD61F8CEE8C005202DA /* Default-568h@2x.png */,
+				FF8EFDBE1F8CEC67005202DA /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FF8EFDD81F8CF350005202DA /* Controlllers */ = {
+			isa = PBXGroup;
+			children = (
+				FF8EFDD91F8CF396005202DA /* LoginViewController.swift */,
+			);
+			path = Controlllers;
+			sourceTree = "<group>";
+		};
+		FF8EFDDB1F8CFB77005202DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FF8EFDDC1F8CFBAA005202DA /* UIRoundedButton.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF8EFDBD1F8CEC67005202DA /* LaunchScreen.storyboard in Resources */,
+				FF8EFDD71F8CEE8C005202DA /* Default-568h@2x.png in Resources */,
 				FF8EFDBA1F8CEC67005202DA /* Assets.xcassets in Resources */,
 				FF8EFDB51F8CEC67005202DA /* Main.storyboard in Resources */,
 			);
@@ -202,9 +274,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF8EFDB81F8CEC67005202DA /* OnTheMap.xcdatamodeld in Sources */,
-				FF8EFDB21F8CEC67005202DA /* ViewController.swift in Sources */,
+				FF4CE6A81F8D261000162957 /* UdacityClient.swift in Sources */,
+				FF4CE6A41F8D1C9200162957 /* StringExtensions.swift in Sources */,
+				FF8EFDDA1F8CF396005202DA /* LoginViewController.swift in Sources */,
+				FF8EFDDD1F8CFBAA005202DA /* UIRoundedButton.swift in Sources */,
 				FF8EFDB01F8CEC67005202DA /* AppDelegate.swift in Sources */,
+				FF4CE6AC1F8D277600162957 /* UdacityConvenience.swift in Sources */,
+				FF4CE6AA1F8D267F00162957 /* UdacityConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,12 +435,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EPF4M4227K;
-				INFOPLIST_FILE = OnTheMap/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/OnTheMapUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JustinPriday.OnTheMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -374,12 +450,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EPF4M4227K;
-				INFOPLIST_FILE = OnTheMap/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/OnTheMapUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JustinPriday.OnTheMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -446,19 +522,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		FF8EFDB61F8CEC67005202DA /* OnTheMap.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				FF8EFDB71F8CEC67005202DA /* OnTheMap.xcdatamodel */,
-			);
-			currentVersion = FF8EFDB71F8CEC67005202DA /* OnTheMap.xcdatamodel */;
-			path = OnTheMap.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = FF8EFDA41F8CEC66005202DA /* Project object */;
 }
