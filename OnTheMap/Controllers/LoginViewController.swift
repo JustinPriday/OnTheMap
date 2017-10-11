@@ -58,6 +58,7 @@ class LoginViewController: UIViewController {
                 return
             }
             
+            self.performSegue(withIdentifier: "ShowOnTheMapTabBar", sender: nil)
             print("Login Success, show map")
         }
     }

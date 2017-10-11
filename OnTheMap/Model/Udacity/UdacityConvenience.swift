@@ -15,14 +15,12 @@ extension UdacityClient {
             if success, let userID = userID {
                 self.userID = userID
                 self.getUser(id: userID, completionHandlerUser: { (success, user) in
-                    print("Got User Success:",user!)
                     if success, let user = user {
                         self.udacityUser = user
                         DispatchQueue.main.async {
                             completionHandler(true, nil)
                         }
                     } else {
-                        //TODO: Error?
                         DispatchQueue.main.async {
                             completionHandler(false,ErrorMessage.unknownError) //success but no user, fail case
                         }
