@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF2A84701F8E2C14007A4B0E /* UdacityUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2A846F1F8E2C14007A4B0E /* UdacityUser.swift */; };
 		FF4CE6A41F8D1C9200162957 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CE6A31F8D1C9200162957 /* StringExtensions.swift */; };
 		FF4CE6A81F8D261000162957 /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CE6A71F8D261000162957 /* UdacityClient.swift */; };
 		FF4CE6AA1F8D267F00162957 /* UdacityConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CE6A91F8D267F00162957 /* UdacityConstants.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FF2A846F1F8E2C14007A4B0E /* UdacityUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityUser.swift; sourceTree = "<group>"; };
 		FF4CE6A31F8D1C9200162957 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		FF4CE6A71F8D261000162957 /* UdacityClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
 		FF4CE6A91F8D267F00162957 /* UdacityConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityConstants.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				FF4CE6A71F8D261000162957 /* UdacityClient.swift */,
 				FF4CE6A91F8D267F00162957 /* UdacityConstants.swift */,
 				FF4CE6AB1F8D277600162957 /* UdacityConvenience.swift */,
+				FF2A846F1F8E2C14007A4B0E /* UdacityUser.swift */,
 			);
 			path = Udacity;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				FF8EFDDD1F8CFBAA005202DA /* UIRoundedButton.swift in Sources */,
 				FF8EFDB01F8CEC67005202DA /* AppDelegate.swift in Sources */,
 				FF4CE6AC1F8D277600162957 /* UdacityConvenience.swift in Sources */,
+				FF2A84701F8E2C14007A4B0E /* UdacityUser.swift in Sources */,
 				FF4CE6AA1F8D267F00162957 /* UdacityConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

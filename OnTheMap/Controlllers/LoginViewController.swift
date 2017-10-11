@@ -52,6 +52,13 @@ class LoginViewController: UIViewController {
         UdacityClient.sharedInstance().authenticateUdacity(username: usernameTextField.text!, password: passwordTextField.text!) { (success, error) in
             self.setUI(enabled: true)
             self.setLoading(false)
+            
+            guard success, error == nil else {
+                self.showError(error: error!)
+                return
+            }
+            
+            print("Login Success, show map")
         }
     }
     
