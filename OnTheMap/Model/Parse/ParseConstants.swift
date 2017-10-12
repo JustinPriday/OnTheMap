@@ -22,6 +22,8 @@ extension ParseClient {
     }
     
     struct ParameterKeys {
+        static let studentWhere = "where"
+        static let userID = "uniqueKey"
         static let limit = "limit"
         static let skip = "skip"
         static let order = "order"

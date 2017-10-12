@@ -17,61 +17,13 @@ class ListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        updateList()
+        listTable.reloadData()
     }
     
-    // MARK: IBActions
-    
-    @IBAction func logoutPressed(_ sender: Any) {
-        listTable.isHidden = true
-        loadingActivity.startAnimating()
-        UdacityClient.sharedInstance().logout { (success, error) in
-            self.listTable.isHidden = false
-            self.loadingActivity.stopAnimating()
-            if success == true {
-                self.dismiss(animated: true, completion: nil)
-            } else {
-                let alert = UIAlertController(title: "Error", message: error, preferredStyle: UIAlertControllerStyle.alert)
-                let dismissAction = UIAlertAction(title: "OK", style: .default) { (action) in
-                    
-                }
-                alert.addAction(dismissAction)
-                self.present(alert, animated: true, completion: nil)
-            }
-        }
-    }
-    
-    @IBAction func refreshLocationsPressed(_ sender: Any) {
-        updateList()
-    }
-    
-    @IBAction func addLocationPressed(_ sender: Any) {
-    }
-    //MARK: Private Functions
-    
-    private func updateList() {
-        ParseClient.sharedInstance().clearList()
-        
-        listTable.isHidden = true
-        loadingActivity.startAnimating()
-        
-        ParseClient.sharedInstance().requestStudentLocations { (success, error) in
-            self.loadingActivity.stopAnimating()
-            self.listTable.isHidden = false
-            guard success, error == nil else {
-                print("Student list failed with error: ",error!)
-                return
-            }
-            self.listTable.reloadData()
-        }
-    }
 }
 
 extension ListViewController: UITableViewDataSource, UITableViewDelegate {
@@ -104,5 +56,20 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
         print("Opening URL")
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
+}
+
+extension ListViewController: TabUIUpdates {
+    func startUpdates(dataChanging: Bool) {
+        listTable.isHidden = true
+        loadingActivity.startAnimating()
+    }
     
+    func stopUpdates() {
+        self.listTable.isHidden = false
+        self.loadingActivity.stopAnimating()
+    }
+    
+    func updateData() {
+        self.listTable.reloadData()
+    }
 }

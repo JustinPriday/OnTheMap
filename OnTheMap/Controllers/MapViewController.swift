@@ -22,73 +22,24 @@ class MapViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
-        updateMapLocations()
+        mapView.clearMapAnnotations()
+        displayMapLocations()
     }
     
-    // MARK: IBActions
+    // MARK: Member Functions
     
-    @IBAction func logoutPressed(_ sender: Any) {
-        self.mapView.alpha = 0.4
-        self.loadingActivity.startAnimating()
-        UdacityClient.sharedInstance().logout { (success, error) in
-            self.mapView.alpha = 1.0
-            self.loadingActivity.stopAnimating()
-            if success == true {
-                self.dismiss(animated: true, completion: nil)
-            } else {
-                let alert = UIAlertController(title: "Error", message: error, preferredStyle: UIAlertControllerStyle.alert)
-                let dismissAction = UIAlertAction(title: "OK", style: .default) { (action) in
-                    
-                }
-                alert.addAction(dismissAction)
-                self.present(alert, animated: true, completion: nil)
-            }
-        }
-    }
-    
-    @IBAction func refreshLocationsPressed(_ sender: Any) {
-        updateMapLocations()
-    }
-    
-    @IBAction func addLocationPressed(_ sender: Any) {
-    }
-    
-    // MARK: Private Functions
-    
-    func updateMapLocations() {
-        self.mapView.alpha = 0.4
-        self.loadingActivity.startAnimating()
-        self.clearMapAnnotations()
-
-        ParseClient.sharedInstance().requestStudentLocations { (success, error) in
-            self.mapView.alpha = 1.0
-            self.loadingActivity.stopAnimating()
-            guard success, error == nil else {
-                print("Student list failed with error: ",error!)
-                return
-            }
+    func displayMapLocations() {
+        var annotations = [MKPointAnnotation]()
+        for location in ParseClient.sharedInstance().locations {
+            let coordinate = location.coordinate
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = coordinate
+            annotation.title = location.userName
+            annotation.subtitle = location.media
             
-            var annotations = [MKPointAnnotation]()
-            for location in ParseClient.sharedInstance().locations {
-                let coordinate = location.coordinate
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = coordinate
-                annotation.title = location.userName
-                annotation.subtitle = location.media
-                
-                annotations.append(annotation)
-            }
-            
-            self.mapView.addAnnotations(annotations)
+            annotations.append(annotation)
         }
-    }
-    
-    private func clearMapAnnotations() {
-        let annotations = self.mapView.annotations
-        for annotation in annotations {
-            self.mapView.removeAnnotation(annotation)
-        }
+        self.mapView.addAnnotations(annotations)
     }
 }
 
@@ -129,5 +80,26 @@ extension MapViewController: MKMapViewDelegate {
             
         print("Opening URL")
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+}
+
+extension MapViewController: TabUIUpdates {
+    func startUpdates(dataChanging: Bool) {
+        print("Start updates in map:",dataChanging)
+        if (dataChanging) {
+            mapView.clearMapAnnotations()
+        }
+        self.mapView.alpha = 0.4
+        self.loadingActivity.startAnimating()
+    }
+    
+    func stopUpdates() {
+        print("Stop updates in map")
+        self.mapView.alpha = 1.0
+        self.loadingActivity.stopAnimating()
+    }
+    
+    func updateData() {
+        displayMapLocations()
     }
 }

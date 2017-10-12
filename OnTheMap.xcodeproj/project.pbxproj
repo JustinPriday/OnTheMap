@@ -18,6 +18,10 @@
 		FF4CE6A81F8D261000162957 /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CE6A71F8D261000162957 /* UdacityClient.swift */; };
 		FF4CE6AA1F8D267F00162957 /* UdacityConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CE6A91F8D267F00162957 /* UdacityConstants.swift */; };
 		FF4CE6AC1F8D277600162957 /* UdacityConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CE6AB1F8D277600162957 /* UdacityConvenience.swift */; };
+		FF83499B1F8F6D4B001D0529 /* LocationTabsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF83499A1F8F6D4B001D0529 /* LocationTabsController.swift */; };
+		FF83499D1F8F785E001D0529 /* LocationCaptureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF83499C1F8F785E001D0529 /* LocationCaptureController.swift */; };
+		FF83499F1F8F80AE001D0529 /* LocationMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF83499E1F8F80AE001D0529 /* LocationMapController.swift */; };
+		FF8349A11F8F91D4001D0529 /* MapExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8349A01F8F91D4001D0529 /* MapExtensions.swift */; };
 		FF8EFDB01F8CEC67005202DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8EFDAF1F8CEC67005202DA /* AppDelegate.swift */; };
 		FF8EFDB51F8CEC67005202DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8EFDB31F8CEC67005202DA /* Main.storyboard */; };
 		FF8EFDBA1F8CEC67005202DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF8EFDB91F8CEC67005202DA /* Assets.xcassets */; };
@@ -51,6 +55,10 @@
 		FF4CE6A71F8D261000162957 /* UdacityClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
 		FF4CE6A91F8D267F00162957 /* UdacityConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityConstants.swift; sourceTree = "<group>"; };
 		FF4CE6AB1F8D277600162957 /* UdacityConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityConvenience.swift; sourceTree = "<group>"; };
+		FF83499A1F8F6D4B001D0529 /* LocationTabsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTabsController.swift; sourceTree = "<group>"; };
+		FF83499C1F8F785E001D0529 /* LocationCaptureController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCaptureController.swift; sourceTree = "<group>"; };
+		FF83499E1F8F80AE001D0529 /* LocationMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapController.swift; sourceTree = "<group>"; };
+		FF8349A01F8F91D4001D0529 /* MapExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapExtensions.swift; sourceTree = "<group>"; };
 		FF8EFDAC1F8CEC67005202DA /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8EFDAF1F8CEC67005202DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF8EFDB41F8CEC67005202DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -99,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				FF4CE6A31F8D1C9200162957 /* StringExtensions.swift */,
+				FF8349A01F8F91D4001D0529 /* MapExtensions.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -190,6 +199,9 @@
 				FF2A84711F8E3729007A4B0E /* MapViewController.swift */,
 				FF2A84731F8E373E007A4B0E /* ListViewController.swift */,
 				FFD513AA1F8E918F006C93D2 /* LocationListCell.swift */,
+				FF83499A1F8F6D4B001D0529 /* LocationTabsController.swift */,
+				FF83499C1F8F785E001D0529 /* LocationCaptureController.swift */,
+				FF83499E1F8F80AE001D0529 /* LocationMapController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -306,10 +318,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF8349A11F8F91D4001D0529 /* MapExtensions.swift in Sources */,
 				FF4CE6A81F8D261000162957 /* UdacityClient.swift in Sources */,
 				FF4CE6A41F8D1C9200162957 /* StringExtensions.swift in Sources */,
 				FF8EFDDA1F8CF396005202DA /* LoginViewController.swift in Sources */,
+				FF83499D1F8F785E001D0529 /* LocationCaptureController.swift in Sources */,
 				FF8EFDDD1F8CFBAA005202DA /* UIRoundedButton.swift in Sources */,
+				FF83499F1F8F80AE001D0529 /* LocationMapController.swift in Sources */,
 				FF2A847D1F8E4A5F007A4B0E /* ParseLocation.swift in Sources */,
 				FF2A84721F8E3729007A4B0E /* MapViewController.swift in Sources */,
 				FFD513AB1F8E918F006C93D2 /* LocationListCell.swift in Sources */,
@@ -320,6 +335,7 @@
 				FF2A84741F8E373E007A4B0E /* ListViewController.swift in Sources */,
 				FF4CE6AA1F8D267F00162957 /* UdacityConstants.swift in Sources */,
 				FF2A84771F8E4A1E007A4B0E /* ParseClient.swift in Sources */,
+				FF83499B1F8F6D4B001D0529 /* LocationTabsController.swift in Sources */,
 				FF2A84791F8E4A3E007A4B0E /* ParseConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

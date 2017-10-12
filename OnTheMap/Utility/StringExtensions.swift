@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension String {
     func isValidEmail() -> Bool {
@@ -14,4 +15,12 @@ extension String {
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: self)
     }
+    
+    func isValidURL() -> Bool {
+        guard let url = URL(string:self) else {
+            return false
+        }
+        return UIApplication.shared.canOpenURL(url as URL)
+    }
+    
 }

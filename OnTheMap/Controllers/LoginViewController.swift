@@ -68,7 +68,7 @@ class LoginViewController: UIViewController {
             
             UserDefaults.standard.set(self.usernameTextField.text, forKey:self.LAST_USER_KEY) //Save last logged in user
             self.passwordTextField.text = "" //Remove password for future logout.
-            self.performSegue(withIdentifier: "ShowOnTheMapTabBar", sender: nil)
+            self.performSegue(withIdentifier: "ShowOnTheMapViews", sender: nil)
             print("Login Success, show map")
         }
     }

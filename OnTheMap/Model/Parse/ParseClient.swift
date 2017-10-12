@@ -12,6 +12,7 @@ class ParseClient: NSObject {
     var session = URLSession.shared
     
     var locations: [ParseLocation]
+    var userLocation: ParseLocation? = nil
     
     override init() {
         locations = [ParseLocation]()

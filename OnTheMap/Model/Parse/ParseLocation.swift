@@ -58,3 +58,9 @@ struct ParseLocation {
         }
     }
 }
+
+extension ParseLocation: Equatable {
+    static func ==(lhs: ParseLocation, rhs: ParseLocation) -> Bool {
+        return lhs.userID == rhs.userID
+    }
+}
