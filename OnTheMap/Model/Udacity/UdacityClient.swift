@@ -108,7 +108,7 @@ class UdacityClient : NSObject {
         return task
     }
     
-    private func convertDataWithCompletionHandler(_ data: Data, completionHandlerForConvertData: (_ result: AnyObject?, _ error: NSError?) -> Void) {
+    func convertDataWithCompletionHandler(_ data: Data, completionHandlerForConvertData: (_ result: AnyObject?, _ error: NSError?) -> Void) {
         
         var parsedResult: AnyObject! = nil
         do {
@@ -124,7 +124,7 @@ class UdacityClient : NSObject {
         completionHandlerForConvertData(parsedResult, nil)
     }
     
-    private func udacityURL(withMethod: String? = nil, parameters: [String:AnyObject]) -> URL {
+    func udacityURL(withMethod: String? = nil, parameters: [String:AnyObject]) -> URL {
         var components = URLComponents()
         components.scheme = Constants.ApiScheme
         components.host = Constants.ApiHost

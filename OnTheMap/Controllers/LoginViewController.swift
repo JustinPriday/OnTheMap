@@ -11,6 +11,7 @@ import UIKit
 class LoginViewController: UIViewController {
     
     let SIGNUP_URL = "https://www.udacity.com/account/auth#!/signup"
+    let LAST_USER_KEY = "last_logged_in_user"
     
     // MARK: IBOutlets
     @IBOutlet weak var usernameTextField: UITextField!
@@ -27,6 +28,13 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Login View did load")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let lastUser = UserDefaults.standard.string(forKey: LAST_USER_KEY) {
+            usernameTextField.text = lastUser
+        }
     }
     
     // MARK: IBActions
@@ -58,6 +66,8 @@ class LoginViewController: UIViewController {
                 return
             }
             
+            UserDefaults.standard.set(self.usernameTextField.text, forKey:self.LAST_USER_KEY) //Save last logged in user
+            self.passwordTextField.text = "" //Remove password for future logout.
             self.performSegue(withIdentifier: "ShowOnTheMapTabBar", sender: nil)
             print("Login Success, show map")
         }

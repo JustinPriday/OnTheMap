@@ -40,6 +40,60 @@ extension UdacityClient {
         }
     }
     
+    func logout(completionHandler: @escaping (_ success: Bool, _ error: String?) -> Void) {
+        //Considered a taskForDELETEMethod, since this may be a special case of delete I've left reuse method
+        //until actual reuse become evident when required.
+        let request = NSMutableURLRequest(url: udacityURL(withMethod: Methods.Session, parameters: [:]))
+        request.httpMethod = "DELETE"
+        var xsrfCookie: HTTPCookie? = nil
+        let sharedCookieStorage = HTTPCookieStorage.shared
+        for cookie in sharedCookieStorage.cookies! {
+            if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
+        }
+        if let xsrfCookie = xsrfCookie {
+            request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+        }
+        let task = session.dataTask(with: request as URLRequest) { data, response, error in
+            func sendError(_ error: String) {
+                print(error)
+                DispatchQueue.main.async {
+                    completionHandler(false, error)
+                }
+            }
+            
+            guard (error == nil) else {
+                sendError("There was an error with your request: \(error!)")
+                return
+            }
+            
+            guard let data = data else {
+                sendError("No data was returned by the request!")
+                return
+            }
+
+            self.convertDataWithCompletionHandler(data, completionHandlerForConvertData: { (results, error) in
+                if let _ = error {
+                    DispatchQueue.main.async {
+                        completionHandler(false, "Error")
+                    }
+                } else {
+                    if let results = results {
+                        print("Logout Results: ",results)
+                        DispatchQueue.main.async {
+                            completionHandler(true, nil)
+                        }
+                    } else {
+                        DispatchQueue.main.async {
+                            completionHandler(false, "Error")
+                        }
+                    }
+                }
+            })
+        }
+        task.resume()
+        
+    }
+    
     private func getUserID(username: String, password: String, completionHandlerSession: @escaping (_ success: Bool, _ userID: String?, _ error: String?) -> Void) {
         let parameters : [String:AnyObject] = [:]
         let jsonBody = "{\"udacity\": {\"username\": \"\(username)\", \"password\": \"\(password)\"}}"
