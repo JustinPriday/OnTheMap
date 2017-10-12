@@ -264,7 +264,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="URL" textContentType="url"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pjz-ve-3bd" customClass="UIRoundedButton" customModule="OnTheMap" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="224" width="295" height="40"/>
@@ -334,12 +334,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="YyM-Db-azy">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hkf-wq-m4u" userLabel="Map Container">
                                 <rect key="frame" x="0.0" y="64" width="375" height="559"/>
-                                <connections>
-                                    <outlet property="delegate" destination="JjL-ad-LuN" id="Qw7-2C-KOR"/>
-                                </connections>
-                            </mapView>
+                                <subviews>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="YyM-Db-azy">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="JjL-ad-LuN" id="Qw7-2C-KOR"/>
+                                        </connections>
+                                    </mapView>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="qlv-Lq-kva">
+                                        <rect key="frame" x="169" y="261" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="YyM-Db-azy" secondAttribute="bottom" id="BMI-K0-UnV"/>
+                                    <constraint firstItem="YyM-Db-azy" firstAttribute="leading" secondItem="Hkf-wq-m4u" secondAttribute="leading" id="CGw-zK-6JV"/>
+                                    <constraint firstItem="qlv-Lq-kva" firstAttribute="centerY" secondItem="Hkf-wq-m4u" secondAttribute="centerY" id="Fpb-35-SPe"/>
+                                    <constraint firstAttribute="trailing" secondItem="YyM-Db-azy" secondAttribute="trailing" id="LBQ-8X-f3a"/>
+                                    <constraint firstItem="qlv-Lq-kva" firstAttribute="centerX" secondItem="Hkf-wq-m4u" secondAttribute="centerX" id="aQI-Ng-o3E"/>
+                                    <constraint firstItem="YyM-Db-azy" firstAttribute="top" secondItem="Hkf-wq-m4u" secondAttribute="top" id="im0-fE-xLm"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EVW-tY-g36" customClass="UIRoundedButton" customModule="OnTheMap" customModuleProvider="target">
                                 <rect key="frame" x="20" y="563" width="335" height="40"/>
                                 <color key="backgroundColor" red="0.0078431372550000003" green="0.70196078429999997" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -362,18 +379,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0np-YY-hsr" firstAttribute="trailing" secondItem="YyM-Db-azy" secondAttribute="trailing" id="0kE-SQ-bsa"/>
-                            <constraint firstItem="YyM-Db-azy" firstAttribute="top" secondItem="0np-YY-hsr" secondAttribute="top" id="5oF-0n-m4h"/>
                             <constraint firstItem="EVW-tY-g36" firstAttribute="leading" secondItem="0np-YY-hsr" secondAttribute="leading" constant="20" id="6PN-D6-iAp"/>
+                            <constraint firstItem="0np-YY-hsr" firstAttribute="bottom" secondItem="Hkf-wq-m4u" secondAttribute="bottom" id="Bjs-Cc-vIN"/>
+                            <constraint firstItem="0np-YY-hsr" firstAttribute="trailing" secondItem="Hkf-wq-m4u" secondAttribute="trailing" id="Geo-bm-zh4"/>
                             <constraint firstItem="0np-YY-hsr" firstAttribute="bottom" secondItem="EVW-tY-g36" secondAttribute="bottom" constant="20" id="GkS-i2-hOV"/>
-                            <constraint firstItem="YyM-Db-azy" firstAttribute="leading" secondItem="0np-YY-hsr" secondAttribute="leading" id="Nam-NS-3fO"/>
-                            <constraint firstItem="0np-YY-hsr" firstAttribute="bottom" secondItem="YyM-Db-azy" secondAttribute="bottom" id="QbY-E3-ZD8"/>
                             <constraint firstItem="0np-YY-hsr" firstAttribute="trailing" secondItem="EVW-tY-g36" secondAttribute="trailing" constant="20" id="Ws1-Dx-hKe"/>
+                            <constraint firstItem="Hkf-wq-m4u" firstAttribute="leading" secondItem="0np-YY-hsr" secondAttribute="leading" id="nw6-aS-OVk"/>
+                            <constraint firstItem="Hkf-wq-m4u" firstAttribute="top" secondItem="0np-YY-hsr" secondAttribute="top" id="xd0-5P-821"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0np-YY-hsr"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Location" id="GBP-qh-dmi"/>
                     <connections>
+                        <outlet property="activityView" destination="qlv-Lq-kva" id="St9-Ur-IZP"/>
                         <outlet property="mapView" destination="YyM-Db-azy" id="bhl-Xf-w1W"/>
                     </connections>
                 </viewController>

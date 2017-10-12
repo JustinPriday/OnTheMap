@@ -86,4 +86,39 @@ extension ParseClient {
             }
         }
     }
+    
+    func writeLocation(_ location: ParseLocation, completionHandler: @escaping (_ success: Bool, _ error: String?) -> Void) {
+        var httpMethod: String? = nil
+        var apiMethod: String? = nil
+        
+        if let objectID = location.objectID {
+            //replace current object
+            httpMethod = "PUT"
+            apiMethod = "\(Methods.PUTLocation)\(objectID)"
+        } else {
+            //create a new object
+            httpMethod = "POST"
+            apiMethod = Methods.Locations
+        }
+        
+        print("Sending results:",location.submitString)
+        let _ = taskForPUTPOSTMethod(apiMethod!, parameters: [:], httpMethod: httpMethod!, jsonBody: location.submitString) { (results, error) in
+            if let _ = error {
+                DispatchQueue.main.async {
+                    completionHandler(false, "Network Error")
+                }
+            } else {
+                if let results = results {
+                    print("Location save results:",results)
+                    DispatchQueue.main.async {
+                        completionHandler(true, nil)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        completionHandler(false, "No Results with no error")
+                    }
+                }
+            }
+        }
+    }
 }

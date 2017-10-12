@@ -32,15 +32,15 @@ class LocationCaptureController: UIViewController {
     
     @IBAction func findPressed(_ sender: Any) {
         guard let locationText = locationText.text, !locationText.isEmpty else {
-            print("Location Required")
+            showError(title: "Location Not Found", message: "Must Enter a Location")
             return
         }
         
         guard let siteText = websiteText.text, siteText.isValidURL() else {
-            print("Valid URL Required")
+            showError(title: "Website Required", message: "Must Enter a Website. Include HTTP(S)://")
             return
         }
-        
+
         self.enableUI(false)
         let geoCoder = CLGeocoder()
         print("Starting Geocode on ",locationText)
@@ -50,6 +50,7 @@ class LocationCaptureController: UIViewController {
                 let placeMarks = placeMarks,
                 let location = placeMarks.first?.location
                 else {
+                self.showError(title: "Location Not Found", message: "Try Another Location Search")
                 return
             }
             print("Got Location ",location)
@@ -69,6 +70,15 @@ class LocationCaptureController: UIViewController {
         } else {
             activityVIew.startAnimating()
         }
+    }
+    
+    func showError(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let dismissAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            
+        }
+        alert.addAction(dismissAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
     // MARK: - Navigation
