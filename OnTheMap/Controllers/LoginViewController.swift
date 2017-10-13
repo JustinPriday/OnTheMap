@@ -17,7 +17,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginActivityView: UIActivityIndicatorView!
-    @IBOutlet weak var loginErrorLabel: UILabel!
     
     @IBOutlet weak var loginButton: UIRoundedButton!
     @IBOutlet weak var signupButton: UIButton!
@@ -46,12 +45,14 @@ class LoginViewController: UIViewController {
         }
         
         guard (usernameTextField.text?.isValidEmail())! else {
-            showError(error: "Email address required")
+            setLoading(false)
+            showAlertError(title: "Error", message: "Email address required")
             return
         }
         
         guard let text = passwordTextField.text, !text.isEmpty else {
-            showError(error: "Password required")
+            setLoading(false)
+            showAlertError(title: "Error", message: "Password Required")
             return
         }
         
@@ -62,7 +63,7 @@ class LoginViewController: UIViewController {
             self.setLoading(false)
             
             guard success, error == nil else {
-                self.showError(error: error!)
+                self.showAlertError(title: "Error", message: error!)
                 return
             }
             
@@ -84,19 +85,22 @@ class LoginViewController: UIViewController {
     @IBAction func facebookLoginPressed(_ sender: Any) {
         print("Facebook Login")
     }
+    
 }
 
 //Extension for UI Handling
 extension LoginViewController {
     
-    func showError(error : String) {
-        loginActivityView.stopAnimating()
-        loginErrorLabel.text = error
-        loginErrorLabel.isHidden = false
+    func showAlertError(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let dismissAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            
+        }
+        alert.addAction(dismissAction)
+        self.present(alert, animated: true, completion: nil)
     }
-    
+
     func setLoading(_ loading : Bool) {
-        loginErrorLabel.isHidden = true
         if loading {
             loginActivityView.startAnimating()
         } else {

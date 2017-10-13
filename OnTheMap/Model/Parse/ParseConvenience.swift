@@ -12,11 +12,12 @@ extension ParseClient {
     
     func requestStudentLocations(completionHandler: @escaping (_ success: Bool, _ error: String?) -> Void) {
         let parameters : [String:AnyObject] = [
-            ParameterKeys.limit:Constants.StudentCount as AnyObject]
+            ParameterKeys.limit:Constants.StudentCount as AnyObject,
+            ParameterKeys.order:ParamterOptions.orderCreatedDesc as AnyObject]
         let _ = taskForGETMethod(Methods.Locations, parameters: parameters) { (results, error) in
             if let _ = error {
                 DispatchQueue.main.async {
-                    completionHandler(false, "Network Error")
+                    completionHandler(false, ErrorMessage.networkError)
                 }
             } else {
                 if let results = results {
@@ -26,15 +27,18 @@ extension ParseClient {
                         var locations = [ParseStudentInformation]()
                         for studentLocationDict in locationResults {
                             let studentLocation: ParseStudentInformation = ParseStudentInformation(dictionary: studentLocationDict)
-                            locations.append(studentLocation)
+                            //Users location always first.
                             if studentLocation.userID == userID {
+                                locations.insert(studentLocation, at: 0)
                                 userLocation = studentLocation
+                            } else {
+                                locations.append(studentLocation)
                             }
                         }
                         if (userLocation != nil) {
                             //We have a student location for the current user, no need to request.
-                            self.locations = locations
-                            self.userLocation = userLocation
+                            StudentStore.sharedInstance().locations = locations
+                            StudentStore.sharedInstance().userLocation = userLocation
                             DispatchQueue.main.async {
                                 completionHandler(true, nil)
                             }
@@ -42,12 +46,13 @@ extension ParseClient {
                             self.requestLocationForStudent(userID!, completionHandler: { (success, location, error) in
                                 if success, let location = location {
                                     userLocation = location
-                                    locations.append(location)
-                                    self.locations = locations
-                                    self.userLocation = userLocation
+                                    //Users location always first
+                                    locations.insert(location, at:0)
+                                    StudentStore.sharedInstance().locations = locations
+                                    StudentStore.sharedInstance().userLocation = userLocation
                                 } else {
-                                    self.locations = locations
-                                    self.userLocation = nil
+                                    StudentStore.sharedInstance().locations = locations
+                                    StudentStore.sharedInstance().userLocation = nil
                                 }
                                 DispatchQueue.main.async {
                                     completionHandler(true, nil)
@@ -57,12 +62,12 @@ extension ParseClient {
 
                     } else {
                         DispatchQueue.main.async {
-                            completionHandler(false, "Could not parse results")
+                            completionHandler(false, ErrorMessage.invalidResponse)
                         }
                     }
                 } else {
                     DispatchQueue.main.async {
-                        completionHandler(false, "success but no results")
+                        completionHandler(false, ErrorMessage.invalidResponse)
                     }
                 }
             }
@@ -75,14 +80,14 @@ extension ParseClient {
         let _ = taskForGETMethod(Methods.Locations, parameters: parameters) { (results, error) in
             if let _ = error {
                 DispatchQueue.main.async {
-                    completionHandler(false, nil, "Network Error")
+                    completionHandler(false, nil, ErrorMessage.networkError)
                 }
             } else {
                 if let results = results, let userResult = results[JSONResponseKeys.results] as? [String:AnyObject] {
                     let location: ParseStudentInformation = ParseStudentInformation(dictionary: userResult)
                     completionHandler(true, location, nil)
                 } else {
-                    completionHandler(false, nil, "success but no results")
+                    completionHandler(false, nil, ErrorMessage.invalidResponse)
                 }
             }
         }
@@ -106,7 +111,7 @@ extension ParseClient {
         let _ = taskForPUTPOSTMethod(apiMethod!, parameters: [:], httpMethod: httpMethod!, jsonBody: location.submitString) { (results, error) in
             if let _ = error {
                 DispatchQueue.main.async {
-                    completionHandler(false, "Network Error")
+                    completionHandler(false, ErrorMessage.networkError)
                 }
             } else {
                 if let results = results {
@@ -120,7 +125,7 @@ extension ParseClient {
                     }
                 } else {
                     DispatchQueue.main.async {
-                        completionHandler(false, "No Results with no error")
+                        completionHandler(false, ErrorMessage.invalidResponse)
                     }
                 }
             }
@@ -133,18 +138,17 @@ extension ParseClient {
         let _ = taskForPUTPOSTMethod(apiMethod, parameters: [:], httpMethod: httpMethod, jsonBody: nil) { (results, error) in
             if let _ = error {
                 DispatchQueue.main.async {
-                    completionHandler(false, "Network Error")
+                    completionHandler(false, ErrorMessage.networkError)
                 }
             } else {
                 if let results = results {
-                    //TODO:Check response for success
                     print("Location save results:",results)
                     DispatchQueue.main.async {
                         completionHandler(true, nil)
                     }
                 } else {
                     DispatchQueue.main.async {
-                        completionHandler(false, "No Results with no error")
+                        completionHandler(false, ErrorMessage.invalidResponse)
                     }
                 }
             }

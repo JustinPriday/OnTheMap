@@ -28,14 +28,14 @@ class ListViewController: UIViewController {
 
 extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ParseClient.sharedInstance().locations.count
+        return StudentStore.sharedInstance().locations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellReuseIdentifier = "StudentLocationCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! LocationListCell
         
-        let location = ParseClient.sharedInstance().locations[indexPath.row]
+        let location = StudentStore.sharedInstance().locations[indexPath.row]
         
         cell.titleLabel?.text = location.userName
         cell.descriptionLabel?.text = location.media
@@ -46,7 +46,7 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         
-        let location = ParseClient.sharedInstance().locations[indexPath.row]
+        let location = StudentStore.sharedInstance().locations[indexPath.row]
         
         guard let url = URL(string:location.media) else {
             print("Unable to generate URL")

@@ -22,6 +22,7 @@
 		FF83499D1F8F785E001D0529 /* LocationCaptureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF83499C1F8F785E001D0529 /* LocationCaptureController.swift */; };
 		FF83499F1F8F80AE001D0529 /* LocationMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF83499E1F8F80AE001D0529 /* LocationMapController.swift */; };
 		FF8349A11F8F91D4001D0529 /* MapExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8349A01F8F91D4001D0529 /* MapExtensions.swift */; };
+		FF8349A31F911366001D0529 /* StudentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8349A21F911366001D0529 /* StudentStore.swift */; };
 		FF8EFDB01F8CEC67005202DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8EFDAF1F8CEC67005202DA /* AppDelegate.swift */; };
 		FF8EFDB51F8CEC67005202DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8EFDB31F8CEC67005202DA /* Main.storyboard */; };
 		FF8EFDBA1F8CEC67005202DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF8EFDB91F8CEC67005202DA /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 		FF83499C1F8F785E001D0529 /* LocationCaptureController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCaptureController.swift; sourceTree = "<group>"; };
 		FF83499E1F8F80AE001D0529 /* LocationMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapController.swift; sourceTree = "<group>"; };
 		FF8349A01F8F91D4001D0529 /* MapExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapExtensions.swift; sourceTree = "<group>"; };
+		FF8349A21F911366001D0529 /* StudentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentStore.swift; sourceTree = "<group>"; };
 		FF8EFDAC1F8CEC67005202DA /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8EFDAF1F8CEC67005202DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF8EFDB41F8CEC67005202DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			children = (
 				FF2A84751F8E4958007A4B0E /* Parse */,
 				FF4CE6A61F8D250400162957 /* Udacity */,
+				FF8349A21F911366001D0529 /* StudentStore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				FF83499F1F8F80AE001D0529 /* LocationMapController.swift in Sources */,
 				FF2A847D1F8E4A5F007A4B0E /* ParseStudentInformation.swift in Sources */,
 				FF2A84721F8E3729007A4B0E /* MapViewController.swift in Sources */,
+				FF8349A31F911366001D0529 /* StudentStore.swift in Sources */,
 				FFD513AB1F8E918F006C93D2 /* LocationListCell.swift in Sources */,
 				FF8EFDB01F8CEC67005202DA /* AppDelegate.swift in Sources */,
 				FF4CE6AC1F8D277600162957 /* UdacityConvenience.swift in Sources */,

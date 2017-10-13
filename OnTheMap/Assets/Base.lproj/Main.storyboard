@@ -169,7 +169,6 @@
                         <outlet property="facebookButton" destination="4b8-gF-NCE" id="ceO-gZ-LRe"/>
                         <outlet property="loginActivityView" destination="QG0-yT-mxT" id="9ME-SY-oBX"/>
                         <outlet property="loginButton" destination="RZz-XB-SHp" id="R5D-ce-ZXD"/>
-                        <outlet property="loginErrorLabel" destination="b3Y-Rs-dr6" id="lIc-JK-qcl"/>
                         <outlet property="passwordTextField" destination="WZq-9d-3eM" id="xQA-nn-Bp3"/>
                         <outlet property="signupButton" destination="KEl-pD-J4v" id="7Of-Pm-h5U"/>
                         <outlet property="usernameTextField" destination="q5X-x3-YQg" id="E1p-YF-HgG"/>

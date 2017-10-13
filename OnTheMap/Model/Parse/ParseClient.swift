@@ -11,17 +11,9 @@ import Foundation
 class ParseClient: NSObject {
     var session = URLSession.shared
     
-    var locations: [ParseStudentInformation]
-    var userLocation: ParseStudentInformation? = nil
     
     override init() {
-        locations = [ParseStudentInformation]()
         super.init()
-    }
-    
-    func clearList() {
-        locations = [ParseStudentInformation]()
-        userLocation = nil
     }
     
     func taskForGETMethod(_ method: String, parameters: [String:AnyObject], completionHandlerForGET: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) -> URLSessionDataTask {

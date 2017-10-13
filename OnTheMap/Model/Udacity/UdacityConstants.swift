@@ -32,7 +32,7 @@ extension UdacityClient {
     }
     
     struct ErrorMessage {
-        static let networkError = "Unable to reach Udacity"
+        static let networkError = "Unable to reach Udacity, please check your network."
         static let credentialError = "Invalid Email or Password"
         static let unknownError = "Unknown Error" //Should not be reachable, defensively included
     }

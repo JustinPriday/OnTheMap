@@ -30,6 +30,10 @@ extension ParseClient {
         static let order = "order"
     }
     
+    struct ParamterOptions {
+        static let orderCreatedDesc = "-updatedAt"
+    }
+    
     struct JSONResponseKeys {
         static let results = "results"
         
@@ -43,5 +47,11 @@ extension ParseClient {
         static let longitude = "longitude"
         
         static let error = "error"
+    }
+    
+    struct ErrorMessage {
+        static let networkError = "Unable to reach Server, please check your network."
+        static let invalidResponse = "Invalid Network Response"
+        
     }
 }
