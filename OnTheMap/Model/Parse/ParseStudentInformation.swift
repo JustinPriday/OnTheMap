@@ -1,5 +1,5 @@
 //
-//  ParseLocation.swift
+//  ParseStudentInformation.swift
 //  OnTheMap
 //
 //  Created by Justin Priday on 2017/10/11.
@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 
-struct ParseLocation {
+struct ParseStudentInformation {
     let objectID: String?
     let userID: String?
     let userFirstName: String
@@ -56,8 +56,9 @@ struct ParseLocation {
     }
 }
 
-extension ParseLocation: Equatable {
-    static func ==(lhs: ParseLocation, rhs: ParseLocation) -> Bool {
+extension ParseStudentInformation: Equatable {
+    //became unnecessary, unused
+    static func ==(lhs: ParseStudentInformation, rhs: ParseStudentInformation) -> Bool {
         return lhs.userID == rhs.userID
     }
 }

@@ -33,7 +33,7 @@ class LocationMapController: UIViewController {
     }
     
     @IBAction func finishPressed(_ sender: Any) {
-        let newLocation: ParseLocation = ParseLocation(dictionary:[
+        let newLocation: ParseStudentInformation = ParseStudentInformation(dictionary:[
             ParseClient.JSONResponseKeys.objectId:(ParseClient.sharedInstance().userLocation?.objectID as AnyObject),
             ParseClient.JSONResponseKeys.userId:UdacityClient.sharedInstance().userID as AnyObject,
             ParseClient.JSONResponseKeys.firstName:UdacityClient.sharedInstance().udacityUser?.userFirstName as AnyObject,
@@ -55,7 +55,12 @@ class LocationMapController: UIViewController {
             if (success) {
                 self.navigationController?.popToRootViewController(animated: true)
             } else {
-                print("Unable to save item")
+                let alert = UIAlertController(title: "Error", message: "Unable to post user location with error:\(error ?? "Unknown Error")", preferredStyle: UIAlertControllerStyle.alert)
+                let dismissAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                    
+                }
+                alert.addAction(dismissAction)
+                self.present(alert, animated: true, completion: nil)
             }
         }
     }

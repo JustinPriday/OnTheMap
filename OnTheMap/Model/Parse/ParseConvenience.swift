@@ -21,11 +21,11 @@ extension ParseClient {
             } else {
                 if let results = results {
                     if let locationResults = results[JSONResponseKeys.results] as? [[String:AnyObject]] {
-                        var userLocation: ParseLocation? = nil
+                        var userLocation: ParseStudentInformation? = nil
                         let userID = UdacityClient.sharedInstance().userID
-                        var locations = [ParseLocation]()
+                        var locations = [ParseStudentInformation]()
                         for studentLocationDict in locationResults {
-                            let studentLocation: ParseLocation = ParseLocation(dictionary: studentLocationDict)
+                            let studentLocation: ParseStudentInformation = ParseStudentInformation(dictionary: studentLocationDict)
                             locations.append(studentLocation)
                             if studentLocation.userID == userID {
                                 userLocation = studentLocation
@@ -47,6 +47,7 @@ extension ParseClient {
                                     self.userLocation = userLocation
                                 } else {
                                     self.locations = locations
+                                    self.userLocation = nil
                                 }
                                 DispatchQueue.main.async {
                                     completionHandler(true, nil)
@@ -68,7 +69,7 @@ extension ParseClient {
         }
     }
     
-    func requestLocationForStudent(_ studentID: String, completionHandler: @escaping (_ success: Bool, _ location: ParseLocation?, _ error: String?) -> Void) {
+    func requestLocationForStudent(_ studentID: String, completionHandler: @escaping (_ success: Bool, _ location: ParseStudentInformation?, _ error: String?) -> Void) {
         let parameters : [String:AnyObject] = [
             ParameterKeys.studentWhere:"{\"\(ParameterKeys.userID)\":\"\(studentID)\"" as AnyObject]
         let _ = taskForGETMethod(Methods.Locations, parameters: parameters) { (results, error) in
@@ -78,7 +79,7 @@ extension ParseClient {
                 }
             } else {
                 if let results = results, let userResult = results[JSONResponseKeys.results] as? [String:AnyObject] {
-                    let location: ParseLocation = ParseLocation(dictionary: userResult)
+                    let location: ParseStudentInformation = ParseStudentInformation(dictionary: userResult)
                     completionHandler(true, location, nil)
                 } else {
                     completionHandler(false, nil, "success but no results")
@@ -87,7 +88,7 @@ extension ParseClient {
         }
     }
     
-    func writeLocation(_ location: ParseLocation, completionHandler: @escaping (_ success: Bool, _ error: String?) -> Void) {
+    func writeLocation(_ location: ParseStudentInformation, completionHandler: @escaping (_ success: Bool, _ error: String?) -> Void) {
         var httpMethod: String? = nil
         var apiMethod: String? = nil
         
@@ -109,6 +110,34 @@ extension ParseClient {
                 }
             } else {
                 if let results = results {
+                    print("Location save results:",results)
+                    if let error = results[ParseClient.JSONResponseKeys.error] as? String {
+                        completionHandler(false, error)
+                        return
+                    }
+                    DispatchQueue.main.async {
+                        completionHandler(true, nil)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        completionHandler(false, "No Results with no error")
+                    }
+                }
+            }
+        }
+    }
+    
+    func deleteLocation(withID: String, completionHandler: @escaping (_ success: Bool, _ error: String?) -> Void) {
+        let httpMethod = "DELETE"
+        let apiMethod = "\(Methods.PUTLocation)\(withID)"
+        let _ = taskForPUTPOSTMethod(apiMethod, parameters: [:], httpMethod: httpMethod, jsonBody: nil) { (results, error) in
+            if let _ = error {
+                DispatchQueue.main.async {
+                    completionHandler(false, "Network Error")
+                }
+            } else {
+                if let results = results {
+                    //TODO:Check response for success
                     print("Location save results:",results)
                     DispatchQueue.main.async {
                         completionHandler(true, nil)

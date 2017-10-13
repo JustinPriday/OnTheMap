@@ -13,7 +13,7 @@
 		FF2A84771F8E4A1E007A4B0E /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2A84761F8E4A1E007A4B0E /* ParseClient.swift */; };
 		FF2A84791F8E4A3E007A4B0E /* ParseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2A84781F8E4A3E007A4B0E /* ParseConstants.swift */; };
 		FF2A847B1F8E4A50007A4B0E /* ParseConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2A847A1F8E4A50007A4B0E /* ParseConvenience.swift */; };
-		FF2A847D1F8E4A5F007A4B0E /* ParseLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2A847C1F8E4A5F007A4B0E /* ParseLocation.swift */; };
+		FF2A847D1F8E4A5F007A4B0E /* ParseStudentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2A847C1F8E4A5F007A4B0E /* ParseStudentInformation.swift */; };
 		FF4CE6A41F8D1C9200162957 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CE6A31F8D1C9200162957 /* StringExtensions.swift */; };
 		FF4CE6A81F8D261000162957 /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CE6A71F8D261000162957 /* UdacityClient.swift */; };
 		FF4CE6AA1F8D267F00162957 /* UdacityConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CE6A91F8D267F00162957 /* UdacityConstants.swift */; };
@@ -50,7 +50,7 @@
 		FF2A84761F8E4A1E007A4B0E /* ParseClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
 		FF2A84781F8E4A3E007A4B0E /* ParseConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseConstants.swift; sourceTree = "<group>"; };
 		FF2A847A1F8E4A50007A4B0E /* ParseConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseConvenience.swift; sourceTree = "<group>"; };
-		FF2A847C1F8E4A5F007A4B0E /* ParseLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseLocation.swift; sourceTree = "<group>"; };
+		FF2A847C1F8E4A5F007A4B0E /* ParseStudentInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseStudentInformation.swift; sourceTree = "<group>"; };
 		FF4CE6A31F8D1C9200162957 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		FF4CE6A71F8D261000162957 /* UdacityClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
 		FF4CE6A91F8D267F00162957 /* UdacityConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityConstants.swift; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 				FF2A84761F8E4A1E007A4B0E /* ParseClient.swift */,
 				FF2A84781F8E4A3E007A4B0E /* ParseConstants.swift */,
 				FF2A847A1F8E4A50007A4B0E /* ParseConvenience.swift */,
-				FF2A847C1F8E4A5F007A4B0E /* ParseLocation.swift */,
+				FF2A847C1F8E4A5F007A4B0E /* ParseStudentInformation.swift */,
 			);
 			path = Parse;
 			sourceTree = "<group>";
@@ -325,7 +325,7 @@
 				FF83499D1F8F785E001D0529 /* LocationCaptureController.swift in Sources */,
 				FF8EFDDD1F8CFBAA005202DA /* UIRoundedButton.swift in Sources */,
 				FF83499F1F8F80AE001D0529 /* LocationMapController.swift in Sources */,
-				FF2A847D1F8E4A5F007A4B0E /* ParseLocation.swift in Sources */,
+				FF2A847D1F8E4A5F007A4B0E /* ParseStudentInformation.swift in Sources */,
 				FF2A84721F8E3729007A4B0E /* MapViewController.swift in Sources */,
 				FFD513AB1F8E918F006C93D2 /* LocationListCell.swift in Sources */,
 				FF8EFDB01F8CEC67005202DA /* AppDelegate.swift in Sources */,

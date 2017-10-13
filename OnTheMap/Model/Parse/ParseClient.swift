@@ -11,16 +11,17 @@ import Foundation
 class ParseClient: NSObject {
     var session = URLSession.shared
     
-    var locations: [ParseLocation]
-    var userLocation: ParseLocation? = nil
+    var locations: [ParseStudentInformation]
+    var userLocation: ParseStudentInformation? = nil
     
     override init() {
-        locations = [ParseLocation]()
+        locations = [ParseStudentInformation]()
         super.init()
     }
     
     func clearList() {
-        locations = [ParseLocation]()
+        locations = [ParseStudentInformation]()
+        userLocation = nil
     }
     
     func taskForGETMethod(_ method: String, parameters: [String:AnyObject], completionHandlerForGET: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) -> URLSessionDataTask {
@@ -69,14 +70,16 @@ class ParseClient: NSObject {
         return task
     }
     
-    func taskForPUTPOSTMethod(_ method: String, parameters: [String:AnyObject], httpMethod: String, jsonBody: String, completionHandlerForPUTPOST: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) -> URLSessionDataTask {
+    func taskForPUTPOSTMethod(_ method: String, parameters: [String:AnyObject], httpMethod: String, jsonBody: String?, completionHandlerForPUTPOST: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) -> URLSessionDataTask {
         
         let request = NSMutableURLRequest(url: parseURL(withMethod: method, parameters: parameters))
         request.httpMethod = httpMethod
         request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = jsonBody.data(using: String.Encoding.utf8)
+        if let jsonBody = jsonBody {
+            request.httpBody = jsonBody.data(using: String.Encoding.utf8)
+        }
 
         /* 4. Make the request */
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
