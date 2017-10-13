@@ -37,8 +37,8 @@ extension ParseClient {
                         }
                         if (userLocation != nil) {
                             //We have a student location for the current user, no need to request.
-                            StudentStore.sharedInstance().locations = locations
-                            StudentStore.sharedInstance().userLocation = userLocation
+                            StudentStore.sharedInstance.locations = locations
+                            StudentStore.sharedInstance.userLocation = userLocation
                             DispatchQueue.main.async {
                                 completionHandler(true, nil)
                             }
@@ -48,11 +48,11 @@ extension ParseClient {
                                     userLocation = location
                                     //Users location always first
                                     locations.insert(location, at:0)
-                                    StudentStore.sharedInstance().locations = locations
-                                    StudentStore.sharedInstance().userLocation = userLocation
+                                    StudentStore.sharedInstance.locations = locations
+                                    StudentStore.sharedInstance.userLocation = userLocation
                                 } else {
-                                    StudentStore.sharedInstance().locations = locations
-                                    StudentStore.sharedInstance().userLocation = nil
+                                    StudentStore.sharedInstance.locations = locations
+                                    StudentStore.sharedInstance.userLocation = nil
                                 }
                                 DispatchQueue.main.async {
                                     completionHandler(true, nil)

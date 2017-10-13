@@ -66,7 +66,7 @@ class LocationTabsController: UITabBarController {
     }
     
     @IBAction func addPressed(_ sender: Any) {
-        if (StudentStore.sharedInstance().userLocation != nil) {
+        if (StudentStore.sharedInstance.userLocation != nil) {
             let confirmString = "User \"\(UdacityClient.sharedInstance().udacityUser?.userFullName ?? "")\" Has Already Posted a Student Location. Would You Like To Overwrite Their Location?"
             let alert = UIAlertController(title: "", message: confirmString, preferredStyle: UIAlertControllerStyle.alert)
             let confirmAction = UIAlertAction(title: "Overwrite", style: .default) { (action) in
@@ -109,7 +109,7 @@ class LocationTabsController: UITabBarController {
         if let topView = self.selectedViewController as? TabUIUpdates {
             topView.startUpdates(dataChanging: true)
         }
-        if let userLocationID = StudentStore.sharedInstance().userLocation?.objectID {
+        if let userLocationID = StudentStore.sharedInstance.userLocation?.objectID {
             ParseClient.sharedInstance().deleteLocation(withID: userLocationID, completionHandler: { (success, error) in
                 print("Got Delete Result")
                 
@@ -143,7 +143,7 @@ class LocationTabsController: UITabBarController {
         logoutButton.isEnabled = enabled
         refreshButton.isEnabled = enabled
         addButton.isEnabled = enabled
-        if let _ = StudentStore.sharedInstance().userLocation {
+        if let _ = StudentStore.sharedInstance.userLocation {
             deleteButton.isEnabled = enabled
         } else {
             deleteButton.isEnabled = false;

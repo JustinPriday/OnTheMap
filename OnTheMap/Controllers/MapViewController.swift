@@ -30,7 +30,7 @@ class MapViewController: UIViewController {
     
     func displayMapLocations() {
         var annotations = [MKPointAnnotation]()
-        for location in StudentStore.sharedInstance().locations {
+        for location in StudentStore.sharedInstance.locations {
             let coordinate = location.coordinate
             let annotation = MKPointAnnotation()
             annotation.coordinate = coordinate
@@ -39,7 +39,7 @@ class MapViewController: UIViewController {
             
             annotations.append(annotation)
         }
-        self.mapView.addAnnotations(annotations)
+        mapView.addAnnotations(annotations)
     }
 }
 

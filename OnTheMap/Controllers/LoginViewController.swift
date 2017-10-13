@@ -24,11 +24,6 @@ class LoginViewController: UIViewController {
     
     // MARK: UIViewController Delegates
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        print("Login View did load")
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let lastUser = UserDefaults.standard.string(forKey: LAST_USER_KEY) {
@@ -97,7 +92,7 @@ extension LoginViewController {
             
         }
         alert.addAction(dismissAction)
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
 
     func setLoading(_ loading : Bool) {

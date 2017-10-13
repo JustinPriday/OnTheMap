@@ -34,7 +34,7 @@ class LocationMapController: UIViewController {
     
     @IBAction func finishPressed(_ sender: Any) {
         let newLocation: ParseStudentInformation = ParseStudentInformation(dictionary:[
-            ParseClient.JSONResponseKeys.objectId:(StudentStore.sharedInstance().userLocation?.objectID as AnyObject),
+            ParseClient.JSONResponseKeys.objectId:(StudentStore.sharedInstance.userLocation?.objectID as AnyObject),
             ParseClient.JSONResponseKeys.userId:UdacityClient.sharedInstance().userID as AnyObject,
             ParseClient.JSONResponseKeys.firstName:UdacityClient.sharedInstance().udacityUser?.userFirstName as AnyObject,
             ParseClient.JSONResponseKeys.lastName:UdacityClient.sharedInstance().udacityUser?.userLastName as AnyObject,
